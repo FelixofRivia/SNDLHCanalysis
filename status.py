@@ -1,6 +1,18 @@
 import os
 import time
 import sys
+import argparse
+
+# ANSI escape codes for text colors
+class Colors:
+    RESET = '\033[0m'
+    RED = '\033[91m'
+    GREEN = '\033[92m'
+    YELLOW = '\033[93m'
+    BLUE = '\033[94m'
+    PURPLE = '\033[95m'
+    CYAN = '\033[96m'
+    WHITE = '\033[97m'
 
 def format_seconds(seconds):
     # Calculate hours, minutes, and remaining seconds
@@ -47,6 +59,15 @@ def check_file_modification(file_path, max_window, is_stopped):
         return False
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('brick', type=int)
+    parser.add_argument('plate', type=int)
+    args = parser.parse_args()
+    brick = args.brick
+    plate = args.plate
+    print(brick)
+    print(plate)
+    
     file_path = "Desktop/palline.txt"  # Replace with the path to your file
     max_window = 1 #max minutes before sending warning
     is_stopped = False
